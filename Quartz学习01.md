@@ -1,4 +1,21 @@
-# Quartz学习---01
+---
+title: Quartz学习
+author: Juntech
+top: true
+cover: false
+toc: true
+mathjax: false
+summary: Quartz
+categories: Quartz
+tags: Quartz
+keywords: Quartz
+abbrlink: '3808e305'
+date: 2019-08-30 12:42:09
+password:
+copyright: true
+---
+
+# Quartz学习
 
 ## 1、引入依赖
 
@@ -67,7 +84,7 @@ public class HelloJob implements Job {
            Scheduler scheduler = StdSchedulerFactory.getDefaultScheduler();
    ```
 
-3.   创建任务实例
+3. 创建任务实例
 
    ```java
    //        任务实例 jobDetail

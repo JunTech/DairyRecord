@@ -1,3 +1,24 @@
+---
+title: springcloud教程第5篇：config-server配置中心
+author: Juntech
+top: true
+cover: false
+toc: true
+mathjax: false
+summary: 微服务配置中心
+categories:
+  - springcloud
+  - config-server
+tags:
+  - springcloud
+  - config-server
+keywords: 配置中心
+abbrlink: 76f5f114
+date: 2019-08-26 17:22:36
+password:
+copyright: true
+---
+
 # springcloud教程第5篇：config-server配置中心
 
 ## 1、简介
@@ -44,17 +65,6 @@ public class ConfigServerApplication {
 application.properties:
 
 ```properties
-<<<<<<< HEAD
-spring.application.name=config-server
-server.port=8888
-
-
-spring.cloud.config.server.git.uri=https://github.com/yourname/your repository/
-spring.cloud.config.server.git.searchPaths=configRepo
-spring.cloud.config.label=master
-spring.cloud.config.server.git.username=your username
-spring.cloud.config.server.git.password=your password
-=======
 #server.port= 8763
 #spring.application.name= config-server
 #
@@ -76,7 +86,6 @@ spring:
       server:
         native:
           search-locations: classpath:/configRepo
->>>>>>> 2019.08.27
 ```
 
 - spring.cloud.config.server.git.uri：配置git仓库地址
@@ -87,13 +96,10 @@ spring:
 
 如果Git仓库为公开仓库，可以不填写用户名和密码，如果是私有仓库需要填写.
 
-<<<<<<< HEAD
-=======
 没注释的是配置在本地环境的！！！
 
 1、配置在git仓库
 
->>>>>>> 2019.08.27
 远程仓库https://github.com/yourname/your repository/中创建文件config-client-dev.yml，文件中有一个属性：
 
 ```yml
@@ -112,8 +118,6 @@ http请求地址和资源文件映射如下:
 - /{application}-{profile}.properties
 - /{label}/{application}-{profile}.properties
 
-<<<<<<< HEAD
-=======
 2、配置在本地
 
 在applicaiton.*目录下创建configRepo文件夹，用于存放各个client的配置文件！
@@ -126,39 +130,84 @@ server:
   port: 10007
 ```
 
->>>>>>> 2019.08.27
 ## 3、构建一个config client
 
 重新创建一个springboot项目，取名为config-client,其pom文件：
 
 ```xml
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-config</artifactId>
-		</dependency>
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.1.7.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    <groupId>top.juntech</groupId>
+    <artifactId>springcloud-config-client</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>springcloud-config-client</name>
+    <description>Demo project for Spring Boot</description>
 
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
+    <properties>
+        <java.version>1.8</java.version>
+        <spring-cloud.version>Greenwich.SR2</spring-cloud.version>
+    </properties>
 
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+            <version>2.0.2.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-config</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
+
 ```
 
-<<<<<<< HEAD
-applciation.properties:
-
-```properties
-spring.application.name=config-client
-spring.cloud.config.label=master
-spring.cloud.config.profile=dev  #profile
-spring.cloud.config.uri= http://localhost:8888/   #配置中心uri
-server.port=8881  #自身port
-=======
 bootstrap.yml:         (注意，每个client的配置文件都必须是bootstrap.yml(properties)，不然会报错，各位可以试试)
 
 ```yml
@@ -184,7 +233,6 @@ eureka:
     service-url:
       default-zone: http://localhost:8761/eureka/
 
->>>>>>> 2019.08.27
 ```
 
 - spring.cloud.config.label 指明远程仓库的分支
@@ -192,38 +240,12 @@ eureka:
   - dev开发环境配置文件
   - test测试环境
   - pro正式环境
-<<<<<<< HEAD
-- spring.cloud.config.uri= http://localhost:8888/ 指明配置服务中心的网址。
-=======
 - spring.cloud.config.uri= http://localhost:8763/ 指明配置服务中心的网址。
->>>>>>> 2019.08.27
 - 读取的是配置中心的  config-client-dev.yml或properties
 
 程序的入口类，写一个API接口“／hi”，返回从配置中心读取的author变量的值，代码如下：
 
 ```
-<<<<<<< HEAD
-@SpringBootApplication
-@RestController
-public class ConfigClientApplication {
-
-	public static void main(String[] args) {
-		SpringApplication.run(ConfigClientApplication.class, args);
-	}
-
-	@Value("${author}")
-	private String author;
-	@RequestMapping(value = "/hi")
-	public String hi(){
-		return foo;
-	}
-}
-```
-
-打开网址访问：http://localhost:8881/hi，网页显示：
-
-> juntech
-=======
 package top.juntech.springcloudconfigclient;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -259,7 +281,6 @@ public class SpringcloudConfigClientApplication {
 打开网址访问：http://localhost:10007/hi，网页显示：
 
 > hi ,author : juntech,i am from port : 10007
->>>>>>> 2019.08.27
 
 这就说明，config-client从config-server获取了foo的属性，而config-server是从git仓库读取的,如图：
 
@@ -271,4 +292,4 @@ public class SpringcloudConfigClientApplication {
 
   ​
 
-  ​
+  ​  ​

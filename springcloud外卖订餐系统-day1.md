@@ -1,3 +1,21 @@
+---
+title: springcloud外卖订餐系统 --- day1
+author: Juntech
+top: flase
+cover: false
+toc: true
+mathjax: false
+summary: springboot开发外卖订餐系统
+categories: springcloud
+tags: springcloud
+keywords: 微服务构建外卖订餐系统
+abbrlink: d1a12a6f
+date: 2019-08-20 21:30:21
+password:
+copyright: true
+---
+
+
 # springcloud外卖订餐系统 --- day1
 
 ## 1、确定项目需求
@@ -334,13 +352,11 @@ public class OrderApplication {
 
 }
 ```
-
 第一天项目结构如下：
-
-![56630828588](C:\Users\Ryan\AppData\Local\Temp\1566308285882.png)
+![56630828588](./1/3.png)
 
 依次开启Eurekaserver、eurekaserverconfig、order,会发现<http://localhost:8761/>
 
-![56630736460](C:\Users\Ryan\AppData\Local\Temp\1566307364601.png)
+![56630736460](./1/1.png)
+![56630740034](./1/2.png)
 
-![56630740034](C:\Users\Ryan\AppData\Local\Temp\1566307400341.png)
