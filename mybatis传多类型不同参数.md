@@ -1,18 +1,3 @@
----
-title: mybatis传多类型不同参数
-author: Juntech
-top: false
-cover: false
-toc: true
-mathjax: false
-copyright: true
-date: 2019-11-11 14:37:37
-summary: mybatis传多类型不同参数
-categories: mybatis
-tags: mybatis
-keywords: mybatis
----
-
 # mybatis传多类型不同参数
 
 mybatis传参数

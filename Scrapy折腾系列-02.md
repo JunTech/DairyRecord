@@ -1,19 +1,3 @@
----
-title: scrapy爬虫折腾系列-02
-author: Juntech
-top: false
-cover: false
-toc: true
-mathjax: false
-copyright: true
-summary: crawlSpider爬虫
-categories: python
-tags: scrapy
-keywords: scrapy
-abbrlink: '95e45310'
-date: 2019-09-16 13:08:52
----
-
 # Scrapy折腾系列-02
 
 ## 1、笔记
@@ -42,6 +26,8 @@ date: 2019-09-16 13:08:52
 1. 在parse方法体里定义一个base_domain字符串，你要采集的域名
 2. 在获取单个页面内容的下面判断是否有下一个页面存在
    1. 如果没有，return出去，如果有，就调用`scrapy.Request()`方法，Request方法有2个参数，一个是url,另外一个是callback回调函数，在这里，我们先将url拼接好，然后回调函数就是本身的parse函数，即`callback=self.parse`,回调函数不写`（）`,最后再yield出去就行了，yield表示的是返回当前的这一个请求，而return是返回当前请求并跳出控制语句
+
+
 
 ## 4、CrawlSpider
 

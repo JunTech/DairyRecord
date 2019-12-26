@@ -1,19 +1,3 @@
----
-title: 深入ReentrantLock底层原理01
-author: Juntech
-top: false
-cover: false
-toc: true
-mathjax: false
-copyright: true
-summary: ReentranLock的学习
-categories: java
-tags: ReentranLock
-keywords: ReentranLock
-abbrlink: d7ebb093
-date: 2019-09-11 15:27:03
----
-
 # 深入ReentrantLock底层原理01
 
 ## 1、Thread线程

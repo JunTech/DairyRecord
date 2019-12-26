@@ -1,19 +1,3 @@
----
-title: Dubbo面试题
-author: Juntech
-top: false
-cover: false
-toc: true
-mathjax: false
-copyright: true
-summary: dubbo
-categories: dubbo
-tags: dubbo
-keywords: dubbo
-abbrlink: 7644b6f2
-date: 2019-09-11 15:40:42
----
-
 # Dubbo面试题
 
 ## springcloud和Dobbo有什么区别
@@ -40,7 +24,7 @@ Spring Cloud也类似，所以我们不能站在性能的角度来对比两个�
 
 \4. 标签路由
 
-## Dubbo支持哪些通信协议，分别适用于哪些场景
+##  Dubbo支持哪些通信协议，分别适用于哪些场景
 
 \1. dubbo://，框架的默认协议，采用单一长连接和 NIO 异步通讯，适合于小数据量大并发的服务调用。
 
@@ -112,7 +96,7 @@ mock=fail:return+null表示调用服务失败后返回null。
 
 服务失效踢出基于 Zookeeper 的临时节点原理。
 
-## Dubbo服务暴露的过程
+##  Dubbo服务暴露的过程
 
 首先Dubbo会通过DubboNamespanceHandler解析dubbo:service/标签，并且Spring会完成Bean的实例化，随后
 

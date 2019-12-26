@@ -1,19 +1,3 @@
----
-title: Hexo博客优化
-author: Juntech
-top: false
-cover: false
-toc: true
-mathjax: false
-copyright: true
-summary: hexo博客优化
-categories: hexo
-tags: hexo
-keywords: hexo
-abbrlink: 94271a3a
-date: 2019-09-27 12:47:07
----
-
 # hexo博客优化
 
 ## 1、图片优化
@@ -423,6 +407,7 @@ enable_page_level_ads: true
 添加了代码之后，如果顺利的话，google AdSense会发邮件到你注册的邮箱，在收到邮箱之后，登录AdSense,就可以而根据自己的博客站点选择相应的广告单元了。
 
 ![](https://img-blog.csdnimg.cn/20190102124613131.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3N0b3JtZG9ueQ==,size_16,color_FFFFFF,t_70)
+
 
 个性化配置博客
 此处以 NexT 主题为例，介绍自定义配置的设置方式。
